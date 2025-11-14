@@ -3,6 +3,13 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      bronze_schema:
+        default: bronze.adventureworks
+      silver_schema:
+        default: silver.adventureworks
+        
 jobs:
   deploy:
     runs-on: ubuntu-latest

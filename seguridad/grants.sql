@@ -1,4 +1,8 @@
 -- Databricks notebook source
+GRANT READ FILES ON EXTERNAL LOCATION adventureworks TO `Project RL - Data Engineers`;
+
+-- COMMAND ----------
+
 GRANT USE CATALOG ON CATALOG adventureworks TO "Developers"
 GRANT USE CATALOG ON CATALOG adventureworks TO "Project RL - Data Engineers"
 

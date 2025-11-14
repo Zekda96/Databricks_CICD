@@ -21,7 +21,7 @@ jobs:
         ORIGIN_HOST=${{ secrets.DATABRICKS_ORIGIN_HOST }}
         ORIGIN_TOKEN=${{ secrets.DATABRICKS_ORIGIN_TOKEN }}
         NOTEBOOK_BASE="/Workspace/Users/danielgranjac@outlook.com/Proyecto"
-        NOTEBOOKS=("mount_adls_storage" "mount_adls_storage_v1" "Disparador")  # Agrega más según necesitesas
+        NOTEBOOKS=("preparación_ambiente" "ingest_sales_order_header" "ingest_sales_order_detail" "ingest_products" "transform_products" "transform_sales_order_detail" "transform_sales_order_header" "load_sales")  # Agrega más según necesitesas
 
         mkdir -p notebooks_to_deploy
 

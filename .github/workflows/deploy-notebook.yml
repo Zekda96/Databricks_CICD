@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
     inputs:
       bronze_schema:
-        default: bronze.adventureworks
+        default: adventureworks.bronze
       silver_schema:
-        default: silver.adventureworks
-        
+        default: adventureworks.silver
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
       run: |
         ORIGIN_HOST=${{ secrets.DATABRICKS_ORIGIN_HOST }}
         ORIGIN_TOKEN=${{ secrets.DATABRICKS_ORIGIN_TOKEN }}
-        NOTEBOOK_BASE="/Workspace/Users/danielgranjac@outlook.com/Proyecto"
+        NOTEBOOK_BASE="/Workspace/Repos/danielgranjac@outlook.com/Databricks_CICD/proceso"
         NOTEBOOKS=("preparacion_ambiente" "ingest_products" "ingest_sales_order_detail" "ingest_sales_order_header" "transform_products" "transform_sales_order_detail" "transform_sales_order_header" "load_sales")  # Agrega más según necesitesas
         mkdir -p notebooks_to_deploy
         for nb in "${NOTEBOOKS[@]}"; do

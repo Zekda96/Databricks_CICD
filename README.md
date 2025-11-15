@@ -29,7 +29,7 @@ El pipeline divide el flujo de datos en tres capas lógicas para garantizar la *
 - Silver (Transformación): Datos limpios, enriquecidos y estructurados, listos para un análisis más detallado.
 - Gold (Análisis): Tablas de agregación y vistas de negocio de alto valor, optimizadas para reportes e inteligencia de negocio.
 
-![](images/prod pipeline.png)
+![](images/prod_pipeline.png)
 
 El proyecto se compone de varios notebooks de Databricks, cada uno responsable de una etapa específica del flujo ETL.
 

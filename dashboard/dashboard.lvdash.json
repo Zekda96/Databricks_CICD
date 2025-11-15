@@ -1,0 +1,214 @@
+{
+  "datasets": [
+    {
+      "name": "8b28564a",
+      "displayName": "sales",
+      "queryLines": [
+        "SELECT * FROM adventureworks.gold.sales"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "415df997",
+      "displayName": "Untitled page",
+      "layout": [
+        {
+          "widget": {
+            "name": "total-sales-amount-over-time",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "8b28564a",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    },
+                    {
+                      "name": "sum(total_quantity_sold)",
+                      "expression": "SUM(`total_quantity_sold`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "IN_RANGE(`total_quantity_sold`, 3600, NULL)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "name",
+                  "axis": {
+                    "labelAngle": 0,
+                    "title": "Product Name"
+                  },
+                  "scale": {
+                    "type": "categorical",
+                    "categorySize": {
+                      "type": "number-of-categories",
+                      "number": 10
+                    },
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_quantity_sold)",
+                  "axis": {
+                    "title": "Total Quantity Sold"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "name",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "custom-order",
+                      "orderedValues": [
+                        "AWC Logo Cap",
+                        "Water Bottle - 30 oz.",
+                        "Sport-100 Helmet, Blue",
+                        "Long-Sleeve Logo Jersey, L",
+                        "Sport-100 Helmet, Black",
+                        "Sport-100 Helmet, Red",
+                        "Classic Vest, S",
+                        "Patch Kit/8 Patches",
+                        "Short-Sleeve Classic Jersey, XL",
+                        "Long-Sleeve Logo Jersey, M"
+                      ]
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "title": "Top 10 Products by Total Quantity Sold",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "total-sales-amount-by-product",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "8b28564a",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    },
+                    {
+                      "name": "sum(total_sales_amount)",
+                      "expression": "SUM(`total_sales_amount`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "IN_RANGE(`total_sales_amount`, 1800000D, NULL)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "name",
+                  "axis": {
+                    "labelAngle": 0,
+                    "title": "Product Name"
+                  },
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_sales_amount)",
+                  "axis": {
+                    "title": "Total Sales (USD)"
+                  },
+                  "scale": {
+                    "type": "quantitative",
+                    "domain": {
+                      "min": 1800000
+                    }
+                  }
+                },
+                "color": {
+                  "fieldName": "name",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "custom-order",
+                      "orderedValues": [
+                        "Mountain-200 Black, 38",
+                        "Mountain-200 Black, 42",
+                        "Mountain-200 Black, 46",
+                        "Mountain-200 Silver, 38",
+                        "Mountain-200 Silver, 42",
+                        "Mountain-200 Silver, 46",
+                        "Road-150 Red, 56",
+                        "Road-250 Black, 44",
+                        "Road-250 Black, 48",
+                        "Road-250 Black, 52"
+                      ]
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "title": "Top 10 Producst by Total Sales (USD)",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "6cf33a83",
+      "displayName": "Global Filters",
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
